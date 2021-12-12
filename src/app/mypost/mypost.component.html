@@ -1,3 +1,11 @@
-<p>
-  mypost works!
-</p>
+<ion-card *ngFor="let post of posts; let i = index">
+  <ion-card-content>
+    <h1 style="text-align: center;">
+      <b>{{post.judul}}</b>
+    </h1>
+    <div style="display: flex; align-items: center;justify-content: center;">
+      <ion-img style="width: 200px; height: 200px;" src="https://ubaya.fun/hybrid/160719019/images/{{post.gambar}}"></ion-img>
+    </div>
+    <p>{{ post.tanggal_upload }}</p>
+  </ion-card-content>
+</ion-card>

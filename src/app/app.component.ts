@@ -13,7 +13,8 @@ import { PostService } from './post.service';
 export class AppComponent {
   constructor(private storage:Storage, private http: HttpClient, private router: Router, public ps:PostService) {}
 
-  user_id = "";
+  username = "";
+  iduser = "";
   login_user = "";
   login_passwd = "";
   login_error = "";
@@ -43,8 +44,10 @@ export class AppComponent {
       
       if(this.status=='success')
       {
-        this.user_id=this.login_user;
-        this.storage.set('user_id',this.user_id);
+        this.username=this.login_user;
+        this.storage.set('username',this.username);
+        this.storage.set('iduser',data['data']['id']);
+        // alert(data['data']['username']);
       }
       else
       {
@@ -87,13 +90,15 @@ export class AppComponent {
   }
 
   async logout() {
-    await this.storage.remove("user_id");
+    await this.storage.remove("username");
+    await this.storage.remove("iduser");
     window.location.reload();
   }
 
   async ngOnInit() {
     await this.storage.create();
-    this.user_id = await this.storage.get('user_id');
+    this.username = await this.storage.get('username');
+    this.iduser = await this.storage.get('iduser');
     this.listPost();
   }
 }

@@ -1,4 +1,4 @@
-<ion-app *ngIf="!user_id">
+<ion-app *ngIf="!username">
   <ion-header>
     <ion-toolbar>
       <ion-title>Login</ion-title>
@@ -40,7 +40,7 @@
   </ion-content>
 </ion-app>
 
-<ion-app *ngIf="user_id">
+<ion-app *ngIf="username">
   <ion-menu content-id="content">
     <ion-header>
       <ion-toolbar>
