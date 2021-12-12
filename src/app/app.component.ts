@@ -3,6 +3,7 @@ import { Storage } from '@ionic/storage';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { PostService } from './post.service';
 
 @Component({
   selector: 'app-root',
@@ -10,13 +11,22 @@ import { Router } from '@angular/router';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor(private storage:Storage, private http: HttpClient, private router: Router) {}
+  constructor(private storage:Storage, private http: HttpClient, private router: Router, public ps:PostService) {}
 
   user_id = "";
   login_user = "";
   login_passwd = "";
   login_error = "";
   status = "";
+  posts = [];
+
+  listPost() {
+  	this.ps.postList().subscribe(
+      (data)=> {
+        this.posts = data;
+	    }
+	  );
+  };
 
   Login (id:string, user_password:string):Observable<any>
   {
@@ -84,5 +94,6 @@ export class AppComponent {
   async ngOnInit() {
     await this.storage.create();
     this.user_id = await this.storage.get('user_id');
+    this.listPost();
   }
 }
