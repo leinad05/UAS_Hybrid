@@ -1,3 +1,61 @@
-<ion-app>
-  <ion-router-outlet></ion-router-outlet>
+<ion-app *ngIf="!user_id">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Login</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content >
+    <router-outlet id="content"></router-outlet>
+    <ion-card *ngIf="router.url === '/'">
+      <ion-item>
+        <ion-input name="email" type="email" placeholder="your@email.com" [(ngModel)]='login_user'>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input name="password" type="password" placeholder="Password" [(ngModel)]='login_passwd'>
+        </ion-input>
+      </ion-item>
+      <ion-button type="submit" expand="block" (click)='login()'>Login</ion-button>
+      <ion-button expand="block" color='light' routerLink='/register'>Register</ion-button>
+      <ion-chip *ngIf="login_error">{{login_error}}</ion-chip>
+    </ion-card>
+    <ion-card *ngIf="router.url === '/register'">
+      <ion-card-content>
+        <ion-item>
+          <ion-input name="nama" type="text" placeholder="Input Your Name" [(ngModel)]='register_name'>
+              </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input name="username" type="text" placeholder="Input Your Username" [(ngModel)]='register_username'>
+              </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input name="password" type="password" placeholder="Password" [(ngModel)]='register_passwd'>
+              </ion-input>
+        </ion-item>
+        <ion-button type="submit" expand="block" (click)='register_user()'>Register</ion-button>
+        <ion-chip *ngIf="register_error">{{register_error}}</ion-chip>
+      </ion-card-content>
+    </ion-card>      
+  </ion-content>
+</ion-app>
+
+<ion-app *ngIf="user_id">
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Hello {{username}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+ <ion-card>
+  <ion-card-header>
+    <ion-card-title>Wellcome to {{ judul }}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-img src="http://4.bp.blogspot.com/_DEIjBlFRV_8/TTvPRsRY8hI/AAAAAAAACPk/1gag8y8PyH4/s1600/quick-brown-fox-18.jpg" >
+    </ion-img>
+    quick brown fox jump over the lazy dog
+  </ion-card-content>
+</ion-card>
+</ion-content>
 </ion-app>
