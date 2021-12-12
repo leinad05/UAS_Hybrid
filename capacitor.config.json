@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "Hybrid",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
