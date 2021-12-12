@@ -12,8 +12,6 @@ import { Router } from '@angular/router';
 export class AppComponent {
   constructor(private storage:Storage, private http: HttpClient, private router: Router) {}
 
-  username = ' namaanda';
-  judul = 'Ionic-Angular week 09';
   user_id = "";
   login_user = "";
   login_passwd = "";
