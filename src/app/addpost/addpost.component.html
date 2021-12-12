@@ -1,3 +1,17 @@
-<p>
-  addpost works!
-</p>
+<ion-item>
+  <ion-label position='floating'>Judul</ion-label>
+  <ion-input [(ngModel)] = "judulPost"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label  position='floating'>Caption</ion-label>
+  <ion-input [(ngModel)] = "isiPost"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-img src="{{ postUrl}}">
+  </ion-img>
+  <ion-button (click)="ambilFoto()">
+   foto</ion-button>
+</ion-item>
+
+<ion-button expand='block' (click)="addPost()">Simpan
+</ion-button>

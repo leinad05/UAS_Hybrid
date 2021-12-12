@@ -16,6 +16,7 @@ import { Routes, RouterModule} from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { Camera } from '@ionic-native/camera/ngx';
 
 const appRoutes:Routes = [
   {path:'register', component: RegisterComponent},
@@ -30,7 +31,7 @@ const appRoutes:Routes = [
   declarations: [AppComponent, RegisterComponent, MypostComponent, AddpostComponent, DetailpostComponent, KomentarComponent, AddkomentarComponent],
   entryComponents: [],
   imports: [IonicStorageModule.forRoot(), HttpClientModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule, RouterModule.forRoot(appRoutes)],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [Camera, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
