@@ -1,3 +1,11 @@
-<p>
-  komentar works!
-</p>
+<ion-content >
+    <ion-card *ngFor="let komentar of komentars; let i = index">
+      <ion-card-content>
+        <p>
+          <b>{{komentar.username}}</b>
+        <p>
+        <p>{{ komentar.isi }}</p>
+        <p>{{ komentar.tanggal_komen }}</p>
+      </ion-card-content>
+    </ion-card>
+</ion-content>

@@ -1,3 +1,15 @@
-<p>
-  detailpost works!
-</p>
+<ion-grid>
+  <ion-row>
+   <ion-col size='4'>
+      <ion-img *ngIf="gambar!=''" src="https://ubaya.fun/hybrid/160719019/images/{{gambar}}">
+      </ion-img>
+   </ion-col>
+   <ion-col size='8'>
+     <ion-grid>
+       <ion-row><ion-col><b>{{judul}}</b></ion-col></ion-row> 
+       <ion-row><ion-col>{{ isi }}</ion-col></ion-row> 
+       <!-- <ion-row><ion-col><small>{{desc}}</small></ion-col></ion-row> -->
+     </ion-grid>
+    </ion-col>
+  </ion-row>
+</ion-grid>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { PostService } from '../post.service';
 
 @Component({
   selector: 'app-detailpost',
@@ -7,8 +9,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailpostComponent implements OnInit {
 
-  constructor() { }
+  judul:string = "";
+  isi:string = "";
+  tanggal:string = "";
+  gambar:string = "";
+  total:string = "";
+  username:string = "";
 
-  ngOnInit() {}
+  constructor(public ps:PostService, public route:ActivatedRoute) { }
+
+  id:number=this.route.snapshot.params['id'];
+  detailPost(id){
+    this.ps.postDetail(id).subscribe(
+      (data)=> {
+        this.judul = data['judul'];
+        this.isi = data['isi'];
+        this.tanggal = data['tanggal'];
+        this.gambar = data['gambar'];
+        this.total = data['total'];
+        this.username = data['username'];
+	    }
+	  );
+  };
+
+  ngOnInit() {
+    this.detailPost(this.id);
+  }
 
 }

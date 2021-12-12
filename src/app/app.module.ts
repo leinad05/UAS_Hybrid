@@ -7,6 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
 import { MypostComponent } from './mypost/mypost.component';
 import { AddpostComponent } from './addpost/addpost.component';
+import { DetailpostComponent } from './detailpost/detailpost.component';
+import { KomentarComponent } from './komentar/komentar.component';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { Routes, RouterModule} from '@angular/router';
@@ -18,10 +20,12 @@ const appRoutes:Routes = [
   {path:'register', component: RegisterComponent},
   {path:'mypost', component: MypostComponent},
   {path: 'addpost', component: AddpostComponent},
+  {path:'detail/:id' , component:DetailpostComponent},
+  {path:'komentar/:id' , component:KomentarComponent},
 ]
 
 @NgModule({
-  declarations: [AppComponent, RegisterComponent, MypostComponent, AddpostComponent],
+  declarations: [AppComponent, RegisterComponent, MypostComponent, AddpostComponent, DetailpostComponent, KomentarComponent],
   entryComponents: [],
   imports: [IonicStorageModule.forRoot(), HttpClientModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule, RouterModule.forRoot(appRoutes)],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

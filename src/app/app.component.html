@@ -84,8 +84,19 @@
             <div style="display: flex; align-items: center;justify-content: center;">
               <ion-img style="width: 200px; height: 200px;" src="https://ubaya.fun/hybrid/160719019/images/{{post.gambar}}"></ion-img>
             </div>
-            
+            <p>Posted By: {{ post.username }}</p>
             <p>{{ post.tanggal_upload }}</p>
+            <ion-label color='primary' routerLink='/detail/{{post.id}}'>Click For Detail</ion-label>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-button expand="block" routerLink='/komentar/{{post.id}}'>Komentar</ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button expand="block" (click)="pakaimasker()">Like</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
           </ion-card-content>
         </ion-card>
       </router-outlet>

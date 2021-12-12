@@ -12,5 +12,11 @@ export class PostService {
   	return this.http.get("https://ubaya.fun/hybrid/160719019/UAS/listpost.php");
   }
 
+  postDetail(id:number):Observable<any> {
+    let body = new HttpParams();
+    body = body.set('id', id);
+  	return this.http.post("https://ubaya.fun/hybrid/160719019/UAS/detailpost.php", body);
+  }
+
   constructor(private http: HttpClient) { }
 }
