@@ -1,3 +1,6 @@
-<p>
-  addkomentar works!
-</p>
+<ion-item>
+  <ion-label position='floating'>Isi Komentar</ion-label>
+  <ion-input [(ngModel)] = "isi_komen"></ion-input>
+</ion-item>
+<ion-button expand='block' (click)="addKomentar()">Simpan
+</ion-button>

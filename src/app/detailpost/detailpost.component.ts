@@ -13,7 +13,7 @@ export class DetailpostComponent implements OnInit {
   isi:string = "";
   tanggal:string = "";
   gambar:string = "";
-  total:string = "";
+  total:number = 0;
   username:string = "";
 
   constructor(public ps:PostService, public route:ActivatedRoute) { }
@@ -26,7 +26,7 @@ export class DetailpostComponent implements OnInit {
         this.isi = data['isi'];
         this.tanggal = data['tanggal'];
         this.gambar = data['gambar'];
-        this.total = data['total'];
+        this.total = data['total_like'];
         this.username = data['username'];
 	    }
 	  );
