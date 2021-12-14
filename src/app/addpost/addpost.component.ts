@@ -53,7 +53,8 @@ export class AddpostComponent implements OnInit {
     this.newPost(this.judulPost, this.isiPost, this.postUrl).subscribe(
       (data) => {
         alert(data['pesan']);
-        this.router.navigate(['/']);
+        window.location.reload();
+        window.location.href = "/";
       });
   }
 

@@ -6,8 +6,14 @@
     <div style="display: flex; align-items: center;justify-content: center;">
       <ion-img style="width: 200px; height: 200px;" src="https://ubaya.fun/hybrid/160719019/UAS/images/{{post.gambar}}"></ion-img>
     </div>
-    <p style="padding-top: 2vw;">Posted By: {{ post.username }}</p>
-    <p>{{ post.tanggal_upload }}</p>
+    <div style="padding-top: 2vw;">
+      <ion-icon slot="start" name="person" style="vertical-align: middle;"></ion-icon> 
+      <ion-text style="vertical-align: middle;"> {{ post.username }}</ion-text> 
+    </div>
+    <div style="padding-bottom: 1vw;">
+      <ion-icon slot="start" name="calendar" style="vertical-align: middle;"></ion-icon> 
+      <ion-text style="vertical-align: middle;"> {{ post.tanggal_upload }}</ion-text> 
+    </div>
     <ion-label color='primary' routerLink='/detail/{{post.id}}'>Click For Detail</ion-label>
     <ion-grid>
       <ion-row>

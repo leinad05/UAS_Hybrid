@@ -55,7 +55,8 @@ export class EditpostComponent implements OnInit {
     this.edit(this.judulPost, this.isiPost).subscribe(
       (data) => {
         alert(data['pesan']);
-        this.router.navigate(['/']);
+        window.location.reload();
+        window.location.href = "/";
       });
   }
 

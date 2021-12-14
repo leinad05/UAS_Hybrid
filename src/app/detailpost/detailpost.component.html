@@ -15,15 +15,21 @@
   </ion-row>
   <ion-row>
     <ion-col>
-      <div class="ion-text-center">By: {{username}}</div>
+      <div class="ion-text-center">
+        <ion-icon slot="start" name="person" style="vertical-align: middle;"></ion-icon> 
+        <ion-text style="vertical-align: middle;"> {{username}}</ion-text> 
+      </div>
     </ion-col>
     <ion-col>
-      <div class="ion-text-center">{{total}} likes</div>
+      <div class="ion-text-center">
+        <ion-icon slot="start" name="heart" style="vertical-align: middle; color: red;"></ion-icon> 
+        <ion-text style="vertical-align: middle;"> {{total}}</ion-text> 
+      </div>
     </ion-col>
   </ion-row>
   <ion-row>
     <ion-col>
-      <div style="padding: 5vw;" class="ion-text-justify">{{ isi }}</div>
+      <div style="padding: 5vw;">{{ isi }}</div>
     </ion-col>
   </ion-row>
 </ion-grid>
