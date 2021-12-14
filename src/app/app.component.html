@@ -8,7 +8,7 @@
     <router-outlet id="content"></router-outlet>
     <ion-card *ngIf="router.url === '/'">
       <ion-item>
-        <ion-input name="email" type="email" placeholder="your@email.com" [(ngModel)]='login_user'>
+        <ion-input name="email" type="email" placeholder="Username" [(ngModel)]='login_user'>
         </ion-input>
       </ion-item>
       <ion-item>
@@ -78,13 +78,13 @@
     	<router-outlet id="content" *ngIf="router.url === '/'">
         <ion-card *ngFor="let post of posts; let i = index">
           <ion-card-content>
-            <h1 style="text-align: center;">
+            <h1 style="text-align: center; padding-bottom: 2vw;">
               <b>{{post.judul}}</b>
             </h1>
             <div style="display: flex; align-items: center;justify-content: center;">
               <ion-img style="width: 200px; height: 200px;" src="https://ubaya.fun/hybrid/160719019/UAS/images/{{post.gambar}}"></ion-img>
             </div>
-            <p>Posted By: {{ post.username }}</p>
+            <p style="padding-top: 2vw;">Posted By: {{ post.username }}</p>
             <p>{{ post.tanggal_upload }}</p>
             <ion-label color='primary' routerLink='/detail/{{post.id}}'>Click For Detail</ion-label>
             <ion-grid>
@@ -93,7 +93,9 @@
                   <ion-button expand="block" routerLink='/komentar/{{post.id}}'>Komentar</ion-button>
                 </ion-col>
                 <ion-col>
-                  <ion-button expand="block" (click)="pakaimasker()">Like</ion-button>
+                  <ion-button expand="block" (click)="like(post.id)" color="danger">
+                    Like <ion-icon slot="end" name="heart-outline"></ion-icon>
+                  </ion-button>
                 </ion-col>
               </ion-row>
             </ion-grid>

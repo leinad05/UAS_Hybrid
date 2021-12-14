@@ -14,7 +14,7 @@ export class AppComponent {
   constructor(private storage:Storage, private http: HttpClient, private router: Router, public ps:PostService) {}
 
   username = "";
-  iduser = "";
+  iduser = 0;
   login_user = "";
   login_passwd = "";
   login_error = "";
@@ -79,6 +79,7 @@ export class AppComponent {
       if(this.stat=='success')
       { 
         this.register_result="Register berhasil";
+        alert(this.register_result);
         this.router.navigate(['/']);
       }
       else
@@ -89,10 +90,37 @@ export class AppComponent {
     });
   }
 
+  liked = "";
+
+  LikePost (user_id:number, post_id:number):Observable<any>
+  {
+    let body = new HttpParams();
+    body = body.set('users_id', user_id);
+    body = body.set('post_id', post_id);
+    return this.http.post ("https://ubaya.fun/hybrid/160719019/UAS/like.php", body);
+  }
+
+  like(index:number) {
+    this.LikePost(this.iduser, index).subscribe(
+    (data) => {
+      this.liked = data['pesan'];
+      
+      if(this.liked=='sukses like')
+      {
+        alert("Berhasil Like!");
+      }
+      else
+      {
+        alert("Gagal Like!");
+      }
+    });
+  }
+
   async logout() {
     await this.storage.remove("username");
     await this.storage.remove("iduser");
-    window.location.reload();
+    // window.location.reload();
+    window.location.href = "/";
   }
 
   async ngOnInit() {

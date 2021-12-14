@@ -31,6 +31,7 @@ export class AddkomentarComponent implements OnInit {
       this.isi_komen,).subscribe(
     (data) => {
       alert(data['pesan']);
+      window.location.href = "/komentar/"+this.id;
     });
   }
 

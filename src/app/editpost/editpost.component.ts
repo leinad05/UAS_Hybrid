@@ -4,6 +4,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router'
 import { Storage } from '@ionic/storage';
 import { PostService } from '../post.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-editpost',
@@ -12,7 +13,7 @@ import { PostService } from '../post.service';
 })
 export class EditpostComponent implements OnInit {
 
-  constructor(public ps:PostService, private http: HttpClient, public route:ActivatedRoute, private storage:Storage) { }
+  constructor(public ps:PostService, private http: HttpClient, public route:ActivatedRoute, private storage:Storage, private router: Router) { }
 
   id:number=this.route.snapshot.params['id'];
   iduser = 0;
@@ -54,6 +55,7 @@ export class EditpostComponent implements OnInit {
     this.edit(this.judulPost, this.isiPost).subscribe(
       (data) => {
         alert(data['pesan']);
+        this.router.navigate(['/']);
       });
   }
 

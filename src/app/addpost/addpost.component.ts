@@ -3,6 +3,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addpost',
@@ -11,7 +12,7 @@ import { Storage } from '@ionic/storage';
 })
 export class AddpostComponent implements OnInit {
 
-  constructor(private http: HttpClient, public camera: Camera, private storage: Storage) { }
+  constructor(private http: HttpClient, public camera: Camera, private storage: Storage, private router: Router) { }
 
   judulPost: string = "";
   isiPost: string = "";
@@ -52,6 +53,7 @@ export class AddpostComponent implements OnInit {
     this.newPost(this.judulPost, this.isiPost, this.postUrl).subscribe(
       (data) => {
         alert(data['pesan']);
+        this.router.navigate(['/']);
       });
   }
 
